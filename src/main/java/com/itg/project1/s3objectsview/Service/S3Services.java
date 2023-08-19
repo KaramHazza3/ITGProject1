@@ -29,11 +29,9 @@ public class S3Services implements IS3Services {
     @Value("${AWS_REGION}")
     private String region;
     private AmazonS3 s3;
-    private final LogFileService logFileService;
 
-    public S3Services(AmazonS3 s3, LogFileService logFileService) {
+    public S3Services(AmazonS3 s3) {
         this.s3 = s3;
-        this.logFileService = logFileService;
     }
 
     @Override
@@ -56,21 +54,6 @@ public class S3Services implements IS3Services {
         return objectUrls;
     }
     public void uploadLogFile() {
-
-
-        BasicAWSCredentials credentials = new BasicAWSCredentials(accessKeyId, secretKey);
-
-        AmazonS3 amazonS3 = AmazonS3ClientBuilder.standard()
-                .withCredentials(new AWSStaticCredentialsProvider(credentials))
-                .withRegion(region)
-                .build();
-
-        File logFile = logFileService.getLogFile();
-
-
-        String key = logFile.getName() + " " + LocalDate.now();
-        PutObjectRequest request = new PutObjectRequest(logsBucketName, key, logFile);
-        amazonS3.putObject(request);
-        System.out.println("File Uploaded Successfully: " + key);
+        return;
     }
 }
