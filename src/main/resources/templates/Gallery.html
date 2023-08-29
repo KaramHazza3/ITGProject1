@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery Page</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f0f0f0; margin: 0; padding: 0;">
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+  <h1 style="text-align: center; margin-bottom: 20px; padding-bottom: 20px;">Gallery Page</h1>
+  <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); grid-gap: 10px; list-style: none; padding: 0;">
+    <li th:each="image : ${images}" style="width: 200px; height: 200px; border: 1px solid #ddd; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+      <img th:src="${image}" alt="Image" style="width: 100%; height: 100%; object-fit: cover;">
+    </li>
+  </ul>
+  <a href="/" style="display: block; text-align: center; margin-top: 100px; color: #007bff; text-decoration: none;">Back to Homepage</a>
+</div>
+</body>
+</html>
